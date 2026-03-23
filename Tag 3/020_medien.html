@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medien in HTML</title>
+    <style>
+        .bild {
+            width: 250px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <h1>Medien in HTML: Bilder, Audio und Videos</h1>
+
+    <p>
+        Mit HTML kannst du verschiedene Medien in deine Webseite einbauen: Bilder, Audio-Dateien (z.B. Musik) und Videos.
+        Diese Medien machen Inhalte anschaulicher und verständlicher.
+    </p>
+</header>
+
+<main>
+
+    <!-- BILDER -->
+    <section>
+        <h2>1. Bilder einbinden (&lt;img&gt;)</h2>
+
+        <h3>Variante 1: Standard Bild</h3>
+        <img src="./img/cat.png" alt="Katze">
+
+        <h3>Variante 2: Bilder mit fester Breite</h3>
+        <img src="./img/rabbit.png" alt="Kaninchen" width="350">
+
+        <h3>Variante 3: Bild mit CSS Klasse</h3>
+        <img src="./img/bird.png" alt="Vogel" class="bild">
+
+        <h3>Variante 4: Klickbare Bilder</h3>
+        <a href="https://tierschutz-berlin.de/" target="_blank">
+            <img src="./img/dog.png" alt="Hund">
+        </a>
+
+        <h3>Variante 5: Bilder mit Beschriftung</h3>
+        <figure>
+            <img src="./img/fish.png" alt="Goldfisch">
+            <figcaption>Abbildung 1: Das ist ein Goldfisch.</figcaption>
+        </figure>
+
+        <h3>Variante 6: Bilder aus dem Web</h3>
+        <img src="https://www.reptilienkosmos.de/documents/category/949/landschildkroeten-Testudo-hermanni-330x230px.jpg" alt="Schildkröte">
+
+        <h3>Variante 7: Responsive Bild</h3>
+        <img src="./img/rat.png" alt="Ratte" style="max-width: 100%; height: auto;">
+    </section>
+
+    <!-- AUDIO -->
+    <section>
+        <h2>2. Audio einbinden (&lt;audio&gt;)</h2>
+
+        <h3>Variante 1</h3>
+        <audio src="./audio/evel_witch.mp3" controls></audio>
+
+        <h3>Variante 2</h3>
+        <audio controls>
+            <source src="./audio/whooo.mp3" type="audio/mpeg">
+        </audio>
+
+        <h3>Variante 3</h3>
+        <audio src="./audio/sinister-laugh.mp3" controls autoplay muted></audio>
+
+        <h3>Variante 4</h3>
+        <audio src="./audio/i-got-this.mp3" controls loop></audio>
+
+        <h3>Variante 5</h3>
+        <audio src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" controls></audio>
+
+        <dl>
+            <dt>audio</dt>
+            <dd>Spielt Audio ab</dd>
+
+            <dt>controls</dt>
+            <dd>Zeigt Steuerung</dd>
+
+            <dt>source</dt>
+            <dd>Gibt Datei an</dd>
+
+            <dt>autoplay</dt>
+            <dd>Startet automatisch</dd>
+
+            <dt>muted</dt>
+            <dd>Stumm</dd>
+
+            <dt>loop</dt>
+            <dd>Wiederholt sich</dd>
+        </dl>
+    </section>
+
+    <!-- VIDEO -->
+<section>
+        <h2>3. Videos einbinden (&lt;video&gt;)</h2>
+
+        <h3>Variante 1: Einfaches Video mit Steuerung</h3>
+        <video src="./video/327101_medium.mp4" controls width="500"></video>
+
+        <h3>Variante 2: Video mit source-Tag</h3>
+        <video controls width="450">
+            <source src="./video/331922_medium.mp4" type="video/mp4">
+            Dein Browser unterstützt dieses Video nicht.
+        </video>
+
+        <h3>Variante 3: autoplay uns stumm</h3>
+        <video src="./video/332821_medium.mp4" controls autoplay muted width="550"></video>
+
+        <h3>Variante 4: vorschaubild (Poster Bild) </h3>
+        <video src="./video/333483_medium.mp4" controls poster="./img/surprise.png" width="450"></video>
+
+        <h3>Variante 5: Loop (wiederholt sich)</h3>
+        <video src="./video/333954_medium.mp4" controls loop width="550" controlslist="nodownload" 
+        oncontextmenu="return false"></video>
+
+        <h3>Variante 6: Aus dem Web einbinden</h3>
+        <iframe width="560" height="315"
+src="https://www.youtube.com/embed/BwynKLJZ_2w"
+title="YouTube video player"
+frameborder="0"
+allowfullscreen>
+</iframe>
+
+    <dl>
+        <dt>Barrierefreiheit bei Videos</dt>
+        <dd>alt gibt es bei &lt;video&gt; NICHT! Das alt Attribut gehört nur zu img (Bildern).</dd>
+        <dd>Was macht man bei Videos?</dd>
+        <dd>1. Fallback-Texte im Video = dieser Text ist das "Ersatz alt" für Videos!</dd>
+
+            <pre>
+                &lt;video controls width="450"&gt;
+                    &lt;source src="./video/331922_medium.mp4" type="video/mp4"&gt;
+                    Dein Browser unterstützt dieses Video nicht. (Das ist der Fallback-Text.)
+                &lt;/video&gt;
+            </pre>
+
+        <dd>
+        
+        <dd>2. Untertitel = das ist die beste Alternative zu alt. Hilf z.B.: gehörlosen Nutzern soie beim Verstehen von Audio-Inhalten.
+            <pre>
+                %lt;video controls width="450"&gt;
+                    &lt;source src="./video/331922_medium.mp4" type="video/mp4"&gt;
+                    &lt;track src="untertitel.vtt" kind="subtitles" srclang="de" label="Deutsch"&gt;
+                &lt;/vide&o&gt;
+            </pre>
+        </dd>
+
+        <dd>3. Beschreibung um das Video herum -> mithilfe von &lt;p&gt;
+            <pre>
+                &lt;p&gt;Das ist wo die Beschreibung des Videos angezeigt wird&lt;/p&gt;
+
+                &lt;video src="./video/327101_medium.mp4" controls width="500"&gt;&lt;/video&gt;
+            </pre>
+        </dd>
+
+
+        <br>
+
+        <dt>track</dt>
+        <dd>... fügt zu einem Video/Audio zusätzliche Textinformationen hinzu. Das könnten sein z.B.: Untertitel, Kapitel, Beschreibungen, andere Textspuren.</dd>
+
+        <dt>vtt = Web Video Text Track</dt>
+        <dd>... ist eine Textdatei für Untertitel und Beschreibungen bei Videos. .vtt-Datei enthält: 1) Untertitel (Text) | 2.) Zeitangabe (wann wird was angezeigt)</dd>
+
+        <dt>kind</dt>
+        <dd>... beschreibtdir Art der Textspur die wir nutzen.</dd>
+        <dd>Welche kind werte gibt es?</dd>
+        <dd>1. subtitle = für übersetzten und unterstützenden Tex zur Sprache der video</dd>
+        <dd>2. caption = untertitle inklusive Geräuchinformationen. Z.B.: "[Tür knallt zu!]"</dd>
+        <dd>3. description = Textbeschreiben für die visuellen Inhalte</dd>
+        <dd>4. chapter = Kapitelmarken in Videos</dd>
+        <dd>5. metadata = zusätzliche Daten, die nicht direkt angezeigt werden</dd>
+
+        <dt>srclang = source language</dt>
+        <dd>Hier gibt einfach nur an, in welcher Sprache die Textspur ist.</dd>
+
+        <dt>label</dt>
+        <dd>... ist die sichbare Bezeichnung für den Nutzer</dd>
+
+
+    </dl>
+
+
+</section>
+
+</main>
+</body>
+</html>
